@@ -1,34 +1,1255 @@
 {
-    "rpm": {
-        "can_id": "0x200",
+    "Checksum_170": {
+        "can_id": "0xaa",
         "byte": 0,
-        "length": 2,
-        "scale": 0.25,
-        "signed": false
-    },
-    "coolant_temp": {
-        "can_id": "0x201",
-        "byte": 3,
         "length": 1,
-        "scale": 1.0,
-        "offset": -40,
+        "scale": 1,
+        "offset": 0,
         "signed": true
     },
-    "boost_pressure": {
-        "can_id": "0x202",
-        "byte": 2,
-        "length": 2,
-        "scale": 0.1,
+    "Counter_170": {
+        "can_id": "0xaa",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
         "signed": false
     },
-    "general_status": {
-        "can_id": "0x302",
+    "AcceleratorPedalPercentage": {
+        "can_id": "0xaa",
+        "byte": 2,
+        "length": 2,
+        "scale": 0.01,
+        "offset": 0,
+        "signed": false
+    },
+    "EngineSpeed": {
+        "can_id": "0xaa",
+        "byte": 4,
+        "length": 2,
+        "scale": 0.25,
+        "offset": 0,
+        "signed": true
+    },
+    "CruisePedalInactive": {
+        "can_id": "0xaa",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CruisePedalActive": {
+        "can_id": "0xaa",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "KickDownPressed": {
+        "can_id": "0xaa",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "AcceleratorPedalPressed": {
+        "can_id": "0xaa",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ThrottlelPressed": {
+        "can_id": "0xaa",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_404": {
+        "can_id": "0x194",
         "byte": 0,
         "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "requests_0xF": {
+        "can_id": "0x194",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_404": {
+        "can_id": "0x194",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Cancel_request_up_stalk": {
+        "can_id": "0x194",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Resume_request": {
+        "can_id": "0x194",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Cancel_request_up_or_down_stalk": {
+        "can_id": "0x194",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "minus5mph_request": {
+        "can_id": "0x194",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "minus1mph_request": {
+        "can_id": "0x194",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "plus5mph_request": {
+        "can_id": "0x194",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "plus1mph_request": {
+        "can_id": "0x194",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "setMe_0xFC": {
+        "can_id": "0x194",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CruiseControlSetpointSpeed": {
+        "can_id": "0x193",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": -2,
+        "signed": false
+    },
+    "CruiseCoontrolActiveFlag": {
+        "can_id": "0x200",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CruiseControlInactiveFlag": {
+        "can_id": "0x200",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_EngineAndBrake": {
+        "can_id": "0xa8",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ALIV_TORQ_1_DME": {
+        "can_id": "0xa8",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "EngineTorque": {
+        "can_id": "0xa8",
+        "byte": 1,
+        "length": 2,
+        "scale": 0.03125,
+        "offset": 0,
+        "signed": true
+    },
+    "EngineTorqueWoInterv": {
+        "can_id": "0xa8",
+        "byte": 3,
+        "length": 2,
+        "scale": 0.03125,
+        "offset": 0,
+        "signed": true
+    },
+    "ST_DMEA_SWO": {
+        "can_id": "0xa8",
+        "byte": 5,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ST_RCPT_ENG_ACC": {
+        "can_id": "0xa8",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ST_RCPT_ENG_ARS": {
+        "can_id": "0xa8",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ST_RCPT_ENG_DSC": {
+        "can_id": "0xa8",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ST_RCPT_ENG_EGS": {
+        "can_id": "0xa8",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Brake_active2": {
+        "can_id": "0xa8",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "BrakePressed": {
+        "can_id": "0xa8",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Next_up": {
+        "can_id": "0x1d6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Previous_down": {
+        "can_id": "0x1d6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Volume_UP": {
+        "can_id": "0x1d6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Volume_DOWN": {
+        "can_id": "0x1d6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Telephone": {
+        "can_id": "0x1d6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "VoiceControl": {
+        "can_id": "0x1d6",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_403": {
+        "can_id": "0x193",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CruiseActive": {
+        "can_id": "0x193",
+        "byte": 5,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CruiseSpeedChangeRequest": {
+        "can_id": "0x193",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "SteeringPosition": {
+        "can_id": "0xc8",
+        "byte": 0,
+        "length": 2,
+        "scale": 0.0428316886,
+        "offset": 0,
+        "signed": true
+    },
+    "Counter_201": {
+        "can_id": "0xc9",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "SteeringPositionComplementLow": {
+        "can_id": "0xc9",
+        "byte": 3,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "Wheel1": {
+        "can_id": "0xce",
+        "byte": 0,
+        "length": 2,
+        "scale": 0.0643699,
+        "offset": 0,
+        "signed": true
+    },
+    "Wheel2": {
+        "can_id": "0xce",
+        "byte": 2,
+        "length": 2,
+        "scale": 0.0643699,
+        "offset": 0,
+        "signed": true
+    },
+    "Wheel3": {
+        "can_id": "0xce",
+        "byte": 4,
+        "length": 2,
+        "scale": 0.0643699,
+        "offset": 0,
+        "signed": true
+    },
+    "Wheel4": {
+        "can_id": "0xce",
+        "byte": 6,
+        "length": 2,
+        "scale": 0.0643699,
+        "offset": 0,
+        "signed": true
+    },
+    "AutoWipersOn": {
+        "can_id": "0x2a6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "IgnitionOff": {
+        "can_id": "0x130",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "AccOn": {
+        "can_id": "0x130",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_304": {
+        "can_id": "0x130",
+        "byte": 4,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_304": {
+        "can_id": "0x130",
+        "byte": 4,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CHKSM_TORQ_2_DME": {
+        "can_id": "0xa9",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ALIV_TORQ_2_DME": {
+        "can_id": "0xa9",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ST_SW_LEV_RPM": {
+        "can_id": "0xa9",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ST_INFS": {
+        "can_id": "0xa9",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "TORQ_AVL_MIN": {
+        "can_id": "0xa9",
+        "byte": 2,
+        "length": 2,
+        "scale": 0.5,
+        "offset": 0,
+        "signed": true
+    },
+    "TORQ_AVL_MAX": {
+        "can_id": "0xa9",
+        "byte": 3,
+        "length": 2,
+        "scale": 0.5,
+        "offset": 0,
+        "signed": true
+    },
+    "TORQ_AVL_SPAR_NEG": {
+        "can_id": "0xa9",
+        "byte": 5,
+        "length": 2,
+        "scale": 0.5,
+        "offset": 0,
+        "signed": true
+    },
+    "TORQ_AVL_SPAR_POS": {
+        "can_id": "0xa9",
+        "byte": 6,
+        "length": 2,
+        "scale": 0.5,
+        "offset": 0,
+        "signed": true
+    },
+    "Checksum_184": {
+        "can_id": "0xb8",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_184": {
+        "can_id": "0xb8",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "SteeringSpeed": {
+        "can_id": "0xc8",
+        "byte": 3,
+        "length": 2,
+        "scale": 0.0428316886,
+        "offset": 0,
+        "signed": true
+    },
+    "Checksum_182": {
+        "can_id": "0xb6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_182": {
+        "can_id": "0xb6",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "TORQ_TAR_DSC": {
+        "can_id": "0xb6",
+        "byte": 1,
+        "length": 2,
+        "scale": 0.5,
+        "offset": 0,
+        "signed": true
+    },
+    "Checksum_186": {
+        "can_id": "0xba",
+        "byte": 5,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_186": {
+        "can_id": "0xba",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_191": {
+        "can_id": "0xbf",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_191": {
+        "can_id": "0xbf",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "TorqueReq": {
+        "can_id": "0xbf",
+        "byte": 2,
+        "length": 2,
+        "scale": 0.5,
+        "offset": 350,
+        "signed": true
+    },
+    "DSC_full_off": {
+        "can_id": "0x19e",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "DTC_on": {
+        "can_id": "0x19e",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_414": {
+        "can_id": "0x19e",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "BrakeStates": {
+        "can_id": "0x19e",
+        "byte": 5,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "BrakePressure": {
+        "can_id": "0x19e",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "Checksum_414": {
+        "can_id": "0x19e",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "VehicleSpeed": {
+        "can_id": "0x1a0",
+        "byte": 0,
+        "length": 2,
+        "scale": 0.103,
+        "offset": 0,
+        "signed": true
+    },
+    "MovingForward": {
+        "can_id": "0x1a0",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "MovingReverse": {
+        "can_id": "0x1a0",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "AccY": {
+        "can_id": "0x1a0",
+        "byte": 2,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "AccX": {
+        "can_id": "0x1a0",
+        "byte": 3,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "YawRate": {
+        "can_id": "0xcd",
+        "byte": 0,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "Counter_416": {
+        "can_id": "0x1a0",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_416": {
+        "can_id": "0x1a0",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_418": {
+        "can_id": "0x1a2",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ManualMode": {
+        "can_id": "0x1a2",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_418": {
+        "can_id": "0x1a2",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_402": {
+        "can_id": "0x192",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_408": {
+        "can_id": "0x198",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "m3ShifterPosition": {
+        "can_id": "0x198",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "m3ShifterPositionXOR1111": {
+        "can_id": "0x198",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ShifterPosition": {
+        "can_id": "0x198",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false,
         "status_flags": {
-            "check_engine": 0,
-            "overheat": 1,
-            "traction_control": 2
+            "1": "D",
+            "2": "S",
+            "3": "N",
+            "4": "R",
+            "5": "P"
         }
+    },
+    "ShifterPositionXOR1111": {
+        "can_id": "0x198",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "param1": {
+        "can_id": "0x198",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "param1XOR11": {
+        "can_id": "0x198",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ParkButtonFirst": {
+        "can_id": "0x198",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ParkButtonSecond": {
+        "can_id": "0x198",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "SideButton": {
+        "can_id": "0x198",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "SideButtonXOR11": {
+        "can_id": "0x198",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "param5": {
+        "can_id": "0x198",
+        "byte": 4,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "SportButtonPressed": {
+        "can_id": "0x198",
+        "byte": 4,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "M3_button": {
+        "can_id": "0x198",
+        "byte": 4,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "always11": {
+        "can_id": "0x198",
+        "byte": 4,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "TEMP_ENG": {
+        "can_id": "0x1d0",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": -48,
+        "signed": false
+    },
+    "TEMP_EOI": {
+        "can_id": "0x1d0",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": -48,
+        "signed": false
+    },
+    "ST_ENG_RUN": {
+        "can_id": "0x1d0",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false,
+        "status_flags": {
+            "3": "signal invalid",
+            "2": "engine running",
+            "1": "engine starting",
+            "0": "engine off"
+        }
+    },
+    "ST_SW_WAUP": {
+        "can_id": "0x1d0",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false,
+        "status_flags": {
+            "3": "signal invalid",
+            "2": "EGS forced switching active",
+            "1": "engine warm",
+            "0": "warming up"
+        }
+    },
+    "Counter_464": {
+        "can_id": "0x1d0",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "AIP_ENG": {
+        "can_id": "0x1d0",
+        "byte": 3,
+        "length": 1,
+        "scale": 2,
+        "offset": 598,
+        "signed": false
+    },
+    "IJV_FU": {
+        "can_id": "0x1d0",
+        "byte": 4,
+        "length": 2,
+        "scale": 1,
+        "offset": -48,
+        "signed": false
+    },
+    "CTR_SLCK": {
+        "can_id": "0x1d0",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false,
+        "status_flags": {
+            "3": "signal invalid",
+            "2": "requirement Shiftlock",
+            "1": "no requirement Shiftlock",
+            "0": "not allowed"
+        }
+    },
+    "RPM_IDLG_TAR": {
+        "can_id": "0x1d0",
+        "byte": 7,
+        "length": 1,
+        "scale": 5,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_946": {
+        "can_id": "0x3b1",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_945": {
+        "can_id": "0x3b1",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_200": {
+        "can_id": "0xc8",
+        "byte": 2,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ShiftLeverPosition": {
+        "can_id": "0x1d2",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false,
+        "status_flags": {
+            "0": "Off",
+            "1": "P",
+            "2": "R",
+            "4": "N",
+            "8": "D"
+        }
+    },
+    "ShiftLeverPositionXOR": {
+        "can_id": "0x1d2",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "GearRelated_TBD": {
+        "can_id": "0x1d2",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "SportButtonState": {
+        "can_id": "0x1d2",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_466": {
+        "can_id": "0x1d2",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "ShiftLeverMode": {
+        "can_id": "0x1d2",
+        "byte": 4,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false,
+        "status_flags": {
+            "0": "Normal",
+            "1": "Sport",
+            "2": "Manual"
+        }
+    },
+    "xFF": {
+        "can_id": "0x1d2",
+        "byte": 5,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "IgnOff": {
+        "can_id": "0x4de",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "HoldActivated": {
+        "can_id": "0x1f6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "RightTurn": {
+        "can_id": "0x1f6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "LeftTurn": {
+        "can_id": "0x1f6",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "TurnSignalIdle": {
+        "can_id": "0x1f6",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "TurnSignalActive": {
+        "can_id": "0x1f6",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "NEW_SIGNAL_2": {
+        "can_id": "0x2fa",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "NEW_SIGNAL_1": {
+        "can_id": "0x2fa",
+        "byte": 1,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "BatteryVoltage": {
+        "can_id": "0x3b4",
+        "byte": 0,
+        "length": 3,
+        "scale": 0.001,
+        "offset": 0,
+        "signed": false
+    },
+    "Unknown": {
+        "can_id": "0xd1",
+        "byte": 2,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "PitchRate": {
+        "can_id": "0xd1",
+        "byte": 4,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "Counter_209": {
+        "can_id": "0xd1",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CRC8_209": {
+        "can_id": "0xd1",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "State1": {
+        "can_id": "0xd4",
+        "byte": 5,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "State2": {
+        "can_id": "0x80",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_128": {
+        "can_id": "0x80",
+        "byte": 3,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "State": {
+        "can_id": "0x140",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Counter_212": {
+        "can_id": "0xd4",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_212": {
+        "can_id": "0xd4",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "CRC8_205": {
+        "can_id": "0xcd",
+        "byte": 2,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "LateralAcceleration": {
+        "can_id": "0xcd",
+        "byte": 4,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": true
+    },
+    "Counter_205": {
+        "can_id": "0xcd",
+        "byte": 6,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "DTC_pressed": {
+        "can_id": "0x316",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "setMe_0x3FFF": {
+        "can_id": "0x316",
+        "byte": 0,
+        "length": 2,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Checksum_Torque_request_EGS": {
+        "can_id": "0xb5",
+        "byte": 0,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
+    },
+    "Gearbox_temperature": {
+        "can_id": "0xb5",
+        "byte": 7,
+        "length": 1,
+        "scale": 1,
+        "offset": 0,
+        "signed": false
     }
 }
