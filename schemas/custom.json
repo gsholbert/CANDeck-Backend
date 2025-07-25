@@ -1,0 +1,34 @@
+{
+    "rpm": {
+        "can_id": "0x200",
+        "byte": 0,
+        "length": 2,
+        "scale": 0.25,
+        "signed": false
+    },
+    "coolant_temp": {
+        "can_id": "0x201",
+        "byte": 3,
+        "length": 1,
+        "scale": 1.0,
+        "offset": -40,
+        "signed": true
+    },
+    "boost_pressure": {
+        "can_id": "0x202",
+        "byte": 2,
+        "length": 2,
+        "scale": 0.1,
+        "signed": false
+    },
+    "general_status": {
+        "can_id": "0x302",
+        "byte": 0,
+        "length": 1,
+        "status_flags": {
+            "check_engine": 0,
+            "overheat": 1,
+            "traction_control": 2
+        }
+    }
+}

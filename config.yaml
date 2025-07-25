@@ -1,0 +1,23 @@
+ecu:
+  brand: custom
+  channel: can0
+
+can_interfaces:
+  canVirtual:
+    interface: virtual
+    channel: vcan0
+    bitrate: 500000
+    receive_own_messages: True
+    init: start
+  can0:
+    interface: socketcan
+    channel: can0
+    bitrate: 500000
+    receive_own_messages: False
+    init: runtime
+  can1:
+    interface: socketcan
+    channel: can1
+    bitrate: 500000
+    receive_own_messages: False
+    init: none
