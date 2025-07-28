@@ -1,7 +1,12 @@
-from .send_can import handle_send_can
-from .get_snapshot_path import handle_get_snapshot_path
+# =============================
+# routes/__init__.py
+# =============================
 
-handler_map = {
-    "send_can": handle_send_can,
-    "get_snapshot_path": handle_get_snapshot_path
-}
+# Public interface for the routes module.
+# This module is responsible for handling and dispatching incoming WebSocket requests.
+# It may also include functions for user commands, system commands, or configuration updates.
+
+from .dispatcher import dispatch_message
+from .handlers import get_all_routes
+
+__all__ = ["dispatch_message", "get_all_routes"]

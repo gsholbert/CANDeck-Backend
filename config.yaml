@@ -21,3 +21,8 @@ can_interfaces:
     bitrate: 500000
     receive_own_messages: False
     init: none
+
+websocket_interfaces:
+  streamdeck:
+    host: "localhost"
+    port: 8765

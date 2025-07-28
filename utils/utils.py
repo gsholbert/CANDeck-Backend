@@ -36,7 +36,7 @@ def load_config_and_schema(config_path: Path, schema_dir: Path) -> Dict[str, Any
     with open(config_path, "r") as f:
         config = yaml.safe_load(f)
 
-    ecu = config.get("ecu")
+    ecu = config.get("ecu", {}).get("brand", {})
     if not ecu:
         raise ValueError("Missing 'ecu' field in config.yaml")
     

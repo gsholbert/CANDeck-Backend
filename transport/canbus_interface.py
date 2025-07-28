@@ -2,15 +2,7 @@ import can
 import asyncio
 from utils.utils import should_update, write_snapshot
 from typing import Dict, Any
-from can import Message
-from transport import signal_schema, active_signals, config
-from bus_manager import create_can_bus
-
-bus = None
-reader = None
-notifier = None
-
-shutdown_event = asyncio.Event()
+from transport import *
 
 def parse_signal(msg, signal) -> Dict[str, Any]:
     spec = signal_schema.get(signal)
@@ -44,8 +36,10 @@ def parse_signal(msg, signal) -> Dict[str, Any]:
     return {signal: value}
 
 async def start_can_monitor():
-    global bus, reader, notifier
-    bus = create_can_bus()
+    ecu_config = config.get("ecu", {})
+    channel = ecu_config.get("channel", "canVirtual")
+
+    bus = await bus_manager.get_bus(channel)
     reader = can.AsyncBufferedReader()
     notifier = can.Notifier(bus, [reader], loop=asyncio.get_running_loop())
 
@@ -54,7 +48,7 @@ async def start_can_monitor():
     try:
         while True:
             msg = await reader.get_message()
-            snapshot: Dict[str, Any]= {}
+            snapshot: Dict[str, Any] = {}
             for signal in active_signals:
                 parsed = parse_signal(msg, signal)
                 for name, val in parsed.items():
@@ -66,17 +60,12 @@ async def start_can_monitor():
     except asyncio.CancelledError:
         print("CAN monitor cancelled")
     finally:
-        await stop_can_monitor()
-
-async def stop_can_monitor():
-    global notifier, bus
-    if notifier:
         notifier.stop()
-        print("Notifier Stopped")
-    if bus:
-        bus.shutdown()
-        print("CAN bus shutdown")
 
-def send_frame(can_id, data, bus):
-    msg = can.Message(arbitration_id=can_id, data=data, is_extended_id=False)
-    bus.send(msg)
+async def send_frame(can_id: int, data: bytes, channel: str = "canVirtual"):
+    bus = await bus_manager.get_bus(channel)
+    try:
+        msg = can.Message(arbitration_id=can_id, data=data, is_extended_id=False)
+        bus.send(msg)
+    except Exception as e:
+        print(f"Error sending CAN Frame: {e}")
