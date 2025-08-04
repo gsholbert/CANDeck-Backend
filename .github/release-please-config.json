@@ -1,0 +1,6 @@
+{
+  "branches": ["main", "dev"],
+  "primaryBranch": "main",
+  "releaseType": "simple"
+}
+
