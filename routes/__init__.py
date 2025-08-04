@@ -6,7 +6,7 @@
 # This module is responsible for handling and dispatching incoming WebSocket requests.
 # It may also include functions for user commands, system commands, or configuration updates.
 
-from .dispatcher import dispatch_message
-from .handlers import get_all_routes
+from .router import dispatch
+from .handlers import handler_map
 
-__all__ = ["dispatch_message", "get_all_routes"]
+__all__ = ["handler_map", "dispatch"]

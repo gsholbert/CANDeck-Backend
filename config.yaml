@@ -1,6 +1,6 @@
 ecu:
   brand: custom
-  channel: can0
+  channel: canVirtual
 
 can_interfaces:
   canVirtual:
@@ -26,3 +26,4 @@ websocket_interfaces:
   streamdeck:
     host: "localhost"
     port: 8765
+    handler_type: "streamdeck"

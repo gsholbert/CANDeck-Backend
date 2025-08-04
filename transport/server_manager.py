@@ -5,6 +5,8 @@ import websockets
 import json
 from typing import Dict, Callable, Awaitable, Optional
 from routes.router import dispatch
+from asyncio import Server
+from core.constants import Defaults
 
 
 class ServerManager:
@@ -15,8 +17,8 @@ class ServerManager:
 
     def __init__(self, config: Dict, dispatch_fn: Optional[Callable[[Dict], Awaitable[Dict]]] = None):
         self._config = config.get("websocket_interfaces", {})
-        self._servers = {}
-        self._locks = {}
+        self._servers: Dict[str, Server] = {}
+        self._locks: Dict[str, asyncio.Lock] = {}
         self._dispatch_fn = dispatch_fn or dispatch
 
     async def _handle_connection(self, websocket, path: str):
@@ -29,8 +31,14 @@ class ServerManager:
                     await websocket.send(json.dumps(response))
         except Exception as e:
             print(f"WebSocket error on {path}: {e}")
+        finally:
+            print(f"Connection closed on {path}")
 
     async def _start_single_server(self, name: str, host: str, port: int):
+        if name in self._servers:
+            print(f"'{name}' already in server list. Restarting...")
+            await self.shutdown_single_server(name)
+
         print(f"Starting WebSocket server '{name}' on ws://{host}:{port}")
 
         async def handler(websocket, path):
@@ -45,11 +53,14 @@ class ServerManager:
         Starts all servers defined in the config under `websocket_interfaces`.
         """
         for name, settings in self._config.items():
-            host = settings.get("host", "localhost")
-            port = settings.get("port", 8765)
-            await self._start_single_server(name, host, port)
+            try:
+                host = settings.get("host", Defaults.WEBSOCKET_HOST)
+                port = settings.get("port", Defaults.WEBSOCKET_PORT)
+                await self._start_single_server(name, host, port)
+            except Exception as e:
+                print(f"Error starting server '{name}': {e}")
 
-    async def shutdown_single_server(self, channel_name):
+    async def shutdown_single_server(self, channel_name: str) -> None:
         if channel_name not in self._servers:
             print(f"'{channel_name}' not in active server list. Skipping...")
             return
@@ -58,6 +69,7 @@ class ServerManager:
         server.close()
         await server.wait_closed()
         self._locks.pop(channel_name)
+        print(f"{channel_name} successfully shut down.")
 
 
     async def shutdown_all_servers(self):

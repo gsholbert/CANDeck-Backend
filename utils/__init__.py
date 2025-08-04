@@ -6,16 +6,10 @@
 # This module provides general-purpose utilities such as config loading,
 # file path resolution, logging setup, and one-time converters like DBC to JSON.
 
-from .config import load_config, get_signal_schema
-from .paths import get_project_root, resolve_path
-from .logger import setup_logger
+from core.constants import load_config_and_schema
 from .dbc_to_json import dbc_to_json
 
 __all__ = [
-    "load_config",
-    "get_signal_schema",
-    "get_project_root",
-    "resolve_path",
-    "setup_logger",
+    "load_config_and_schema",
     "dbc_to_json",
 ]

@@ -3,6 +3,13 @@
 import asyncio
 from typing import Dict
 import can
+from enum import Enum, auto
+
+class BusStatus(Enum):
+    ACTIVE = auto()
+    SHUTDOWN = auto()
+    NOT_FOUND = auto()
+    PERMANENT = auto()
 
 class BusManager:
     """
@@ -12,6 +19,7 @@ class BusManager:
     def __init__(self, config: dict):
         self.config = config
         self._buses: Dict[str, can.Bus] = {}
+        self._bus_lifecycles: Dict[str, str] = {}
         self._usage_counts: Dict[str, int] = {}
         self._locks: Dict[str, asyncio.Lock] = {}
 
@@ -21,25 +29,47 @@ class BusManager:
         Increments the usage count.
         """
         if channel_name not in self._buses:
+            lifecycle = self.config.get("can_interfaces", {}).get(channel_name, {}).get("lifecycle", "dynamic")
             self._buses[channel_name] = self._create_can_bus(channel_name)
+            self._bus_lifecycles[channel_name] = lifecycle
             self._usage_counts[channel_name] = 0
             self._locks[channel_name] = asyncio.Lock()
         self._usage_counts[channel_name] += 1
         return self._buses[channel_name]
 
-    async def release_bus(self, channel_name: str):
+    async def release_bus(self, channel_name: str) -> str:
         """
-        Decrements the usage count and shuts down the bus if no more users remain.
+        Decrements the usage count and shuts down the bus if no more uses remain.
+
+        Returns:
+            "active" if bus has usage remaining and stays open
+            "shutdown" if bus reaches zero uses and is closed
+            "not_found" if bus is not found in usage count map
         """
         if channel_name not in self._usage_counts:
-            return
+            return "not_found"
+        
+        if self._bus_lifecycles[channel_name] == "permanent":
+            return "permanent"
+
         self._usage_counts[channel_name] -= 1
-        if self._usage_counts[channel_name] <= 0:
+
+        if self._usage_counts[channel_name] > 0:
+            return "active"
+
+        # Bus usage reached zero — shut it down
+        try:
             bus = self._buses.pop(channel_name, None)
+        finally:
             if bus:
                 bus.shutdown()
-            self._usage_counts.pop(channel_name)
-            self._locks.pop(channel_name)
+
+            # Clean up references
+            self._usage_counts.pop(channel_name, None)
+            self._locks.pop(channel_name, None)
+
+        return "shutdown"
+
 
     def get_lock(self, channel_name: str) -> asyncio.Lock:
         """
@@ -57,6 +87,8 @@ class BusManager:
         channel = buscfg.get("channel", "can0")
         bitrate = buscfg.get("bitrate", "500000")
         receive_own_messages = buscfg.get("receive_own_messages", False)
+
+        print(f"[DEBUG] Starting can monitor for {interface} on channel {channel}")
 
         return can.Bus(
             interface=interface,
@@ -77,6 +109,7 @@ class BusManager:
                     bus.shutdown()
                 self._usage_counts.pop(channel, None)
                 self._locks.pop(channel, None)
+                self._bus_lifecycles.pop(channel, None)
 
             return not self._buses and not self._usage_counts and not self._locks
 

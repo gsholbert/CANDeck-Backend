@@ -2,10 +2,11 @@ import can
 import asyncio
 from utils.utils import should_update, write_snapshot
 from typing import Dict, Any
-from transport import *
+from core.constants import Config, State
+from core.app_contexts import Managers
 
 def parse_signal(msg, signal) -> Dict[str, Any]:
-    spec = signal_schema.get(signal)
+    spec = Config.schema.get(signal)
     if not spec or msg.arbitration_id != int(spec["can_id"], 16):
         return {}
     
@@ -36,20 +37,22 @@ def parse_signal(msg, signal) -> Dict[str, Any]:
     return {signal: value}
 
 async def start_can_monitor():
-    ecu_config = config.get("ecu", {})
+    print(f"[DEBUG] Loaded ECU Channel: {Config.data.get('ecu', {}).get('channel')}")
+    ecu_config = Config.data.get("ecu", {})
     channel = ecu_config.get("channel", "canVirtual")
 
-    bus = await bus_manager.get_bus(channel)
+    bus = await Managers.bus_manager.get_bus(channel)
+    Managers.bus_manager._bus_lifecycles[channel] = "permanent" # Override bus as permanent
     reader = can.AsyncBufferedReader()
     notifier = can.Notifier(bus, [reader], loop=asyncio.get_running_loop())
 
-    active_signals.update(signal_schema.keys())
+    State.active_signals.update(Config.schema.keys())
 
     try:
         while True:
             msg = await reader.get_message()
             snapshot: Dict[str, Any] = {}
-            for signal in active_signals:
+            for signal in State.active_signals:
                 parsed = parse_signal(msg, signal)
                 for name, val in parsed.items():
                     if should_update(name, val):
@@ -63,7 +66,7 @@ async def start_can_monitor():
         notifier.stop()
 
 async def send_frame(can_id: int, data: bytes, channel: str = "canVirtual"):
-    bus = await bus_manager.get_bus(channel)
+    bus = await Managers.bus_manager.get_bus(channel)
     try:
         msg = can.Message(arbitration_id=can_id, data=data, is_extended_id=False)
         bus.send(msg)
